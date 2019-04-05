@@ -53,6 +53,9 @@ The summary shall be placed at the top of the file. There may only be one. This 
   "date": "2019-02-19T23:20:50.52Z",
   "language": "en-US",
   "languages": ["fr-CA", "es-MX"],
+  "title": "",
+  "version": "",
+  "organization": "what is this"
 }
 ```
 
@@ -61,6 +64,10 @@ The summary shall be placed at the top of the file. There may only be one. This 
 * date - Date and time this file was created, or updated. Must be [RFC 3339](https://tools.ietf.org/html/rfc3339) compliant.
 * language - Default language for the content described by this file.
 * languages - Languages available in the content described by this file. If **language** is omitted, the first language in this list shall be considered the default.
+
+### License
+
+We're envisioning GPLv3 as the license for this specification.
 
 ### Asset
 
