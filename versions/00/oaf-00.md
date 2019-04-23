@@ -9,7 +9,7 @@ platforms.
 
 ## Status of Document
 
-This document is a draft.
+This document is a draft, and is open for comments via [GitHub Issues](https://github.com/kiddom/open-academic-format/issues).
 
 ## Terminology and Conformance Language
 
@@ -38,41 +38,56 @@ TODO
 
 ## Base Data Structures
 
-All data structures, unless otherwise noted, must allow an optional **id** field. Said **id** field must be [**IRI**](https://www.ietf.org/rfc/rfc3987.txt) compatible.
+All data structures, unless otherwise noted, **MUST** allow an optional **id** field. Said **id** field **MUST** be [**IRI**](https://www.ietf.org/rfc/rfc3987.txt) compliant. While IRIs accepts several protocols, IRIs used within this format **SHALL** use the following protocols.
 
-All data structures, unless otherwise noted, must allow an optional **ref** field. Said **ref** field must accept values previously defined in **id** fields.
+* urn
+* https
+
+All data structures, unless otherwise noted, **MUST** allow an optional **ref** field. Said **ref** field **MUST** accept values previously defined in **id** fields within said document. A **ref** may also use a publicly defined **id** values.
 
 ### Summary
 
-The summary shall be placed at the top of the file. There may only be one. This data structure **must not** include an **id**.
+The summary **SHALL** be placed at the top of the file. There may only be one. This data structure **MUST NOT** include an **id**.
 
 ```json
 {
-  "author": "Anne Sullivan",
   "authors": ["Maria Montessori", "Jaime Escalante"],
   "date": "2019-02-19T23:20:50.52Z",
-  "language": "en-US",
-  "languages": ["fr-CA", "es-MX"],
-  "title": "",
-  "version": "",
+  "languages": ["en-US", "fr-CA", "es-MX"],
+  "title": "Kindergarten Curriculum",
+  "version": "1",
   "organization": "what is this"
 }
 ```
 
-* author - Single author of this file. Should be a human.
-* authors - An array of authors of this file. Should be humans.
+* authors - An array of authors of this file. Should be humans. All authors **MUST** be displayed when requested.
 * date - Date and time this file was created, or updated. Must be [RFC 3339](https://tools.ietf.org/html/rfc3339) compliant.
-* language - Default language for the content described by this file.
-* languages - Languages available in the content described by this file. If **language** is omitted, the first language in this list shall be considered the default.
+* languages - Languages available in the content described by this file. The first language in this list **SHALL** be considered the default.
 
 ### License
 
-We're envisioning GPLv3 as the license for this specification.
+Open Academic Interchange Format for Curriculum and Materials.
+
+Copyright (C) 2019  Kiddom, Inc.
+
+This specification is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This specification is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 ### Asset
 
 ```json
 {
+  "id": "urn:kiddom.co:asset:fb060824-9842-48b8-ae82-cf528cc106ca",
   "url": "https://asset.host.edu/path/to/item",
 }
 ```
@@ -82,8 +97,8 @@ We're envisioning GPLv3 as the license for this specification.
 ```json
 {
   "id": "urn:grade:5",
-  "name": "5th Grade",
   "names": {
+    "en-US": "5th Grade",
     "fr-CA": "5ième année",
     "es-MX": "5 año"
   },
@@ -93,15 +108,33 @@ We're envisioning GPLv3 as the license for this specification.
 
 ### MediaType
 
+```json
+```
+
 ### Note
+
+```json
+```
 
 ### Rubric
 
+```json
+```
+
 ### Scoring
+
+```json
+```
 
 #### Scheme
 
+```json
+```
+
 #### Band
+
+```json
+```
 
 ### Skills
 
@@ -111,7 +144,6 @@ We're envisioning GPLv3 as the license for this specification.
   "name": "K.CC.1",
   "type": "Counting And Cardinality",
   "subtype": "Know Number Names And The Count Sequence.",
-  "grade": "urn:grade:k",
   "grades": ["urn:grade:k"]
 }
 ```
@@ -121,12 +153,12 @@ We're envisioning GPLv3 as the license for this specification.
 ```json
 {
   "id": "urn:subject:trigonometry",
-  "name": "Trigonometry",
   "names": {
+    "en-US": "Trigonometry",
     "fr-CA": "Trigonométrie",
     "es-MX": "Trigonometría",
   },
-  "parent": "urn:subject:math"
+  "parent": "urn:subject:mathematics"
 }
 ```
 
@@ -143,8 +175,8 @@ We're envisioning GPLv3 as the license for this specification.
   "subjects": [
     "urn:subject:ela"
   ],
-  "curriculum": "urn:curriculum:english:1",
   "curriculums": [
+    "urn:curriculum:english:1",
     "urn:curriculum:english:2",
     "urn:curriculum:english:3"
   ]
@@ -171,16 +203,34 @@ We're envisioning GPLv3 as the license for this specification.
   "id": "urn:unit:nouns",
   "name": "Nouns & Adjectives: A Love Story",
   "description": "A longer, more descriptive set of sentences. Possibly paragraphs.",
-  "days": 20,
   "skills": [
     "urn:skill:k.cc.1"
   ]
 }
 ```
 
-## Assignment Data Structures
+## Assessment Data Structures
+
+### Assessment
+
+```json
+{
+
+}
+```
 
 ### Assignment
+
+```json
+{
+  "id": "urn:assignment:",
+  "name": "Nouns",
+  "description": "How nouns affect behavior.",
+
+}
+```
+
+### Question
 
 ```json
 {
@@ -192,6 +242,15 @@ We're envisioning GPLv3 as the license for this specification.
 
 ```json
 {
-  
+  "id": "urn:type:paper",
+  "name": "Paper",
+  "description": "A written assignment",
 }
 ```
+
+A Type of Assessment. Implementors **MUST NOT** restrict to known types. The following types **SHALL** always be available for use.
+
+* Homework - `urn:type:homework`
+* Paper - `urn:type:paper`
+* Quiz - `urn:type:quiz`
+* Video - `urn:type:video`
