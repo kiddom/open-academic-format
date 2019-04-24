@@ -109,16 +109,50 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ### MediaType
 
 ```json
+{
+  "category": "image",
+  "content_type": "image/png",
+  "name": "PNG Image"
+}
 ```
 
 ### Note
 
 ```json
+{
+}
 ```
 
 ### Rubric
 
 ```json
+{
+  "name": "Critical Thinking",
+  "description": "General Education Scoring Guide for Critical Thinking",
+  "criteria": [
+    {
+      "name": "Interpretation",
+      "levels": [
+        {
+          "value": 1,
+          "description": "Fails to question data. Ignores bias. Misses major content areas. Detects no inconsistencies. Chooses biased sources."
+        },
+        {
+          "value": 2,
+          "description": "Identifies some questions. Notes some bias. Recognizes basic content. States some inconsistencies. Selects sources adequately."
+        },
+        {
+          "value": 3,
+          "description": "Asks insightful questions. Detects bias. Categorizes content. Identifies inconsistencies. Recognizes context."
+        },
+        {
+          "value": 4,
+          "description": "Analyzes insightful questions. Refutes bias. Critiques content. Examines inconsistencies. Values information."
+        }
+      ]
+    ]
+  ]
+}
 ```
 
 ### Scoring
