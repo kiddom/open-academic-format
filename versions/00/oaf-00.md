@@ -150,7 +150,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
           "description": "Analyzes insightful questions. Refutes bias. Critiques content. Examines inconsistencies. Values information."
         }
       ]
-    ]
+    }
   ]
 }
 ```
@@ -249,34 +249,118 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 ```json
 {
-
+  "id": "urn:assessment:123456",
+  "name": "Student-Facing Task Statement",
+  "type": "urn:type:paper",
 }
 ```
 
-### Assignment
+### Assessment: Homework
 
 ```json
 {
-  "id": "urn:assignment:",
-  "name": "Nouns",
-  "description": "How nouns affect behavior.",
-
+  "id": "urn:assessment:123456",
+  "type": "urn:type:homework",
+  "name": "Student-Facing Task Statement",
+  "description": "Think about your work today, and write your best definition of area.",
 }
 ```
 
-### Question
+### Assessment: Paper
 
 ```json
 {
-
+  "id": "urn:assessment:123456",
+  "type": "urn:type:paper",
+  "name": "Student-Facing Task Statement",
+  "description": "Think about your work today, and write your best definition of area.",
+  "formats": [
+    "application/msword",
+    "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+    "application/vnd.oasis.opendocument.text",
+    "application/pdf",
+  ]
 }
 ```
 
-### Type
+### Assessment: Video
 
 ```json
 {
-  "id": "urn:type:paper",
+  "id": "urn:assessment:123456",
+  "type": "urn:type:video",
+  "name": "Student-Facing Task Statement",
+  "description": "Watch this video.",
+  "resources": [
+    {
+      "category": "video",
+      "content_type": "video/youtube",
+      "name": "",
+      "url": "https://..../"
+    }
+  ]
+}
+```
+
+### Assessment: Quiz
+
+```json
+{
+  "id": "urn:assessment:123456",
+  "type": "urn:type:quiz",
+  "name": "Student-Facing Task Statement",
+  "description": "Look for a pattern in the figures.",
+  "questions": [
+    {
+      "description": "1. How many total tiles will be in:\n\n\ta. the 4th figure?\n\tb. the 5th figure?\n\tc. the 10th figure?\n\n<img src\"\" />",
+      "ordered": [
+        "url:assessment:answer:123456",
+        "url:assessment:answer:234567",
+        "url:assessment:answer:345678"
+      ],
+      "answers": [
+        {
+          "id": "url:assessment:answer:123456",
+          "description": "28 tiles",
+          "type": "urn:input:mathematical",
+        },
+        {
+          "id": "url:assessment:answer:234567",
+          "description": "35 tiles",
+          "type": "urn:input:mathematical",
+        },
+        {
+          "id": "url:assessment:answer:345678",
+          "description": "70 tiles",
+          "type": "urn:input:mathematical",
+        }
+      ],
+      "type": "urn:assessment:quiz:fill-blanks",
+      "resources": [
+        {
+          "category": "applet",
+          "content_type": "applet:geogebra",
+          "name": "Geogebra Applet",
+          "url": "https://..../"
+        }
+      ]
+    }
+  ]
+}
+```
+
+#### Assessment: Quiz, question types
+* Multiple choice - `urn:assessment:quiz:multiple-choices`
+* Fill in the blank - `urn:assessment:quiz:fill-blanks`
+* Freeform submit - `urn:assessment:quiz:open-response`
+* Submit document - `urn:assessment:quiz:submit-document`
+
+
+### Type information
+
+```json
+{
+  "id": "urn:assessment:type:paper",
   "name": "Paper",
   "description": "A written assignment",
 }
