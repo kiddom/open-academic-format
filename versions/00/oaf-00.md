@@ -245,24 +245,14 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 ## Assessment Data Structures
 
-### Assessment
-
-```json
-{
-  "id": "urn:assessment:123456",
-  "name": "Student-Facing Task Statement",
-  "type": "urn:type:paper",
-}
-```
-
 ### Assessment: Homework
 
 ```json
 {
   "id": "urn:assessment:123456",
   "type": "urn:type:homework",
-  "name": "Student-Facing Task Statement",
-  "description": "Think about your work today, and write your best definition of area.",
+  "name": "Daily Reflection",
+  "description": "Think about your day, write out what went well and what did not.",
 }
 ```
 
@@ -272,13 +262,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 {
   "id": "urn:assessment:123456",
   "type": "urn:type:paper",
-  "name": "Student-Facing Task Statement",
-  "description": "Think about your work today, and write your best definition of area.",
+  "name": "Summarize weekly short-stories",
+  "description": "Review the stories we read this week. What made sense and what did not. Give specific examples of stories that were relatable and those that were not and why.",
   "formats": [
-    "application/msword",
-    "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
-    "application/vnd.oasis.opendocument.text",
-    "application/pdf",
+    "urn:format:doc",
+    "urn:format:docx",
+    "urn:format:pdf"
   ]
 }
 ```
@@ -289,13 +278,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 {
   "id": "urn:assessment:123456",
   "type": "urn:type:video",
-  "name": "Student-Facing Task Statement",
-  "description": "Watch this video.",
-  "resources": [
+  "name": "Watch this ballet performance",
+  "description": "Watch this performance of, \"Don Quixote\" and be prepared to discuss in class tomorrow.",
+  "assets": [
     {
-      "category": "video",
-      "content_type": "video/youtube",
-      "name": "",
+      "id": "urn:asset:youtube.com:5fKxzQ8ARTQ",
       "url": "https://..../"
     }
   ]
@@ -308,53 +295,44 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 {
   "id": "urn:assessment:123456",
   "type": "urn:type:quiz",
-  "name": "Student-Facing Task Statement",
-  "description": "Look for a pattern in the figures.",
+  "name": "Chapter 5 Quiz (Focus on Earth Science, Chapter 5)",
+  "description": "Read the questions completely before answers the questions.",
   "questions": [
+    "urn:question:123456"
+  ]
+}
+```
+
+### Assessment: Question
+
+```json
+{
+  "id": "urn:question:123456",
+  "type": "urn:type:question",
+  "name": "Review the image and identify the different layers of Earth's atmosphere.",
+  "description": "The order is important.",
+  "answers": [
+    "urn:answer:123456"
+  ],
+  "assets": [
     {
-      "description": "1. How many total tiles will be in:\n\n\ta. the 4th figure?\n\tb. the 5th figure?\n\tc. the 10th figure?\n\n<img src\"\" />",
-      "ordered": [
-        "url:assessment:answer:123456",
-        "url:assessment:answer:234567",
-        "url:assessment:answer:345678"
-      ],
-      "answers": [
-        {
-          "id": "url:assessment:answer:123456",
-          "description": "28 tiles",
-          "type": "urn:input:mathematical",
-        },
-        {
-          "id": "url:assessment:answer:234567",
-          "description": "35 tiles",
-          "type": "urn:input:mathematical",
-        },
-        {
-          "id": "url:assessment:answer:345678",
-          "description": "70 tiles",
-          "type": "urn:input:mathematical",
-        }
-      ],
-      "type": "urn:assessment:quiz:fill-blanks",
-      "resources": [
-        {
-          "category": "applet",
-          "content_type": "applet:geogebra",
-          "name": "Geogebra Applet",
-          "url": "https://..../"
-        }
-      ]
+      "id": "urn:asset:geogebra:123456",
+      "url": "https://..../"
     }
   ]
 }
 ```
 
-#### Assessment: Quiz, question types
-* Multiple choice - `urn:assessment:quiz:multiple-choices`
-* Fill in the blank - `urn:assessment:quiz:fill-blanks`
-* Freeform submit - `urn:assessment:quiz:open-response`
-* Submit document - `urn:assessment:quiz:submit-document`
+### Assessment: Answer
 
+```json
+{
+  "id": "urn:answer:123456",
+  "type": "urn:type:answer",
+  "name": "Exosphere",
+  "description": "The exosphere is the outermost layer of Earth's atmosphere",
+}
+```
 
 ### Type information
 
