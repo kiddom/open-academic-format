@@ -314,6 +314,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
   "answers": [
     "urn:answer:123456"
   ],
+  "solution": "urn:answer:123456",
   "assets": [
     {
       "id": "urn:asset:geogebra:123456",
