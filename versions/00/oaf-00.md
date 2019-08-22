@@ -150,7 +150,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
           "description": "Analyzes insightful questions. Refutes bias. Critiques content. Examines inconsistencies. Values information."
         }
       ]
-    ]
+    }
   ]
 }
 ```
@@ -245,38 +245,101 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 ## Assessment Data Structures
 
-### Assessment
+### Assessment: Homework
 
 ```json
 {
-
+  "id": "urn:assessment:123456",
+  "type": "urn:type:homework",
+  "name": "Daily Reflection",
+  "description": "Think about your day, write out what went well and what did not.",
 }
 ```
 
-### Assignment
+### Assessment: Paper
 
 ```json
 {
-  "id": "urn:assignment:",
-  "name": "Nouns",
-  "description": "How nouns affect behavior.",
-
+  "id": "urn:assessment:123456",
+  "type": "urn:type:paper",
+  "name": "Summarize weekly short-stories",
+  "description": "Review the stories we read this week. What made sense and what did not. Give specific examples of stories that were relatable and those that were not and why.",
+  "formats": [
+    "urn:format:doc",
+    "urn:format:docx",
+    "urn:format:pdf"
+  ]
 }
 ```
 
-### Question
+### Assessment: Video
 
 ```json
 {
-
+  "id": "urn:assessment:123456",
+  "type": "urn:type:video",
+  "name": "Watch this ballet performance",
+  "description": "Watch this performance of, \"Don Quixote\" and be prepared to discuss in class tomorrow.",
+  "assets": [
+    {
+      "id": "urn:asset:youtube.com:5fKxzQ8ARTQ",
+      "url": "https://..../"
+    }
+  ]
 }
 ```
 
-### Type
+### Assessment: Quiz
 
 ```json
 {
-  "id": "urn:type:paper",
+  "id": "urn:assessment:123456",
+  "type": "urn:type:quiz",
+  "name": "Chapter 5 Quiz (Focus on Earth Science, Chapter 5)",
+  "description": "Read the questions completely before answers the questions.",
+  "questions": [
+    "urn:question:123456"
+  ]
+}
+```
+
+### Assessment: Question
+
+```json
+{
+  "id": "urn:question:123456",
+  "type": "urn:type:question",
+  "name": "Review the image and identify the different layers of Earth's atmosphere.",
+  "description": "The order is important.",
+  "answers": [
+    "urn:answer:123456"
+  ],
+  "solution": "urn:answer:123456",
+  "assets": [
+    {
+      "id": "urn:asset:geogebra:123456",
+      "url": "https://..../"
+    }
+  ]
+}
+```
+
+### Assessment: Answer
+
+```json
+{
+  "id": "urn:answer:123456",
+  "type": "urn:type:answer",
+  "name": "Exosphere",
+  "description": "The exosphere is the outermost layer of Earth's atmosphere",
+}
+```
+
+### Type information
+
+```json
+{
+  "id": "urn:assessment:type:paper",
   "name": "Paper",
   "description": "A written assignment",
 }
